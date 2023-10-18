@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/preact/10.18.1/preact.min.umd.min.js" integrity="sha512-FLghAv5uryollcXQiguDX7EyS8O3R+svhZHdm3it5vnsSJ4uM0mwFYSkZWmOcEzfRMilcp0KHG9MUvI4vaBp2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/preact/10.18.1/hooks.umd.min.js" integrity="sha512-ZvGoKVkAi/sqJ/bDYaaIDQft6GKSk9DYe5GIgOcBSvsX42CMufRQex/EoqJHj12iuQNtX41MIqR1k2QE7pEttQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel" data-presets="es2015,react" data-type="module">
+        /** @jsx preact.h */
+        const { h, render } = preact;
+        const { useState, useEffect } = window.preactHooks;
+
+        const App = () => {
+            const [count, setCount] = useState(0);
+
+            return (
+                <div>
+                    <h1>Hello, Preact!</h1>
+                    <p>Count: {count}</p>
+                    <button onClick={() => setCount(count + 1)}>Increase</button>
+                </div>
+            );
+        };
+
+    render(<App />, document.getElementById('app'));
+    </script>
+</body>
+</html>
